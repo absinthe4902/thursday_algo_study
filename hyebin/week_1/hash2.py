@@ -1,13 +1,10 @@
-def solution(clothes):
-    check = {}
-    sum = 1
-    for i in clothes:
-        check[i[1]] = 1
+def solution(phone_book):
+    m = min(phone_book)
+    phone_book.remove(m)
 
-    for i in clothes:
-        check[i[1]] += 1
+    for i in phone_book:
+        if m == i[:len(m)]:
+            return False
 
-    for i in check :
-        sum = sum * check[i]
-    answer = sum - 1
-    return answer
+    return True
+

@@ -9,5 +9,4 @@ def solution(clothes):
 
     for i in check :
         sum = sum * check[i]
-    answer = sum - 1
-    return answer
+    return sum - 1
