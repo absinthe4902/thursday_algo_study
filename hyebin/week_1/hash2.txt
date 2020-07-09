@@ -1,12 +1,11 @@
 def solution(phone_book):
-    chceck = {}
-    answer = True 
+    
     for i in phone_book:
         c = 0
         for j in phone_book:
-            if i in j:
+            if i in j and i[:1] ==j[:1]:
                 c += 1
         if c > 1 : 
-            answer = False 
-            break
-    return answer
+            return False 
+           
+    return True
