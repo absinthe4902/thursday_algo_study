@@ -1,0 +1,24 @@
+<1>
+def solution(participant, completion):
+    for i in completion:
+	    if i in participant: participant.remove(i)
+    
+    return participant.pop()
+:정확도 50 효율 0
+
++답은 나오지만 비효율적인 코드 -> remove, pop 사용으로인해 시간이 많이 소모됨 
+
+<2>
+def solution(participant, completion):
+    check={}
+    
+    for i in participant :
+        check[i] = 0
+    for i in participant :
+        check[i] += 1
+    for i in completion : 
+        check[i] -= 1
+    for i in check:
+        if check[i] != 0 : answer = i
+    return answer
+:정확도 50 효율 50
