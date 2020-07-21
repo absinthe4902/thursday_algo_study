@@ -5,5 +5,4 @@ def solution(phone_book):
     for i in phone_book:
         if m == i[:len(m)]:
             return False
-
     return True
