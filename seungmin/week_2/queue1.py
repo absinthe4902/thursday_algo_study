@@ -1,27 +1,29 @@
-# 못 풀었다.
 from collections import deque
+
+bridge_length = 100
+weight = 100
+truck_weights = [10,10,10,10,10,10,10,10,10,10]
 
 
 def solution(bridge_length, weight, truck_weights):
     answer = 0
-    truck = deque(truck_weights)
-    bridge = deque([truck.popleft()])
-    length = bridge_length
-    last_length = length
+    brid = [0] * bridge_length
+    weight_qu = list(reversed(truck_weights))
+    total_we = 0
 
-    while bridge:
-        answer += 1
-        length -= 1
-        last_length -= 1
-        if sum(bridge) <= weight:
-            if truck:
-                bridge.append(truck.popleft())
-                temp_length = bridge_length - length
-                length += temp_length
-                last_length = temp_length
+    while brid:
+        answer = answer + 1
+        t = brid.pop(0)
+        total_we -= t
 
-        if last_length == -1:
-            if bridge:
-                bridge.popleft()
+        if truck_weights:
+            if total_we + truck_weights[0] <= weight:
+                tt = truck_weights.pop(0)
+                brid.append(tt)
+                total_we += tt
+            else:
+                brid.append(0)
 
     return answer
+
+print(solution(bridge_length, weight, truck_weights))
